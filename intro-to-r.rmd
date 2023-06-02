@@ -173,3 +173,13 @@ factor_speed_vector <- factor(speed_vector, ordered=TRUE, levels = c("slow","med
 
 factor_speed_vector
 summary_factor_speed_vector
+
+# Dataframes
+
+# The head() method will show the first observations of a dataframe.
+# The tail() method will show the last observations of a dataframe.
+# str() will show you the structure of your dataframe where each column is an observation and each row is a variable
+# str will show you the total number of observations, variables, a full list of the variable names, the data type of each variable, & the first observations
+
+# Creating datafames
+# The function data.frame creates a dataframe. Pass an arbitrary number of vectors into the data.frame() to create the dataframe where each column is a vector and each row is an observation in that vector
