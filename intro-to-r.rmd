@@ -1,0 +1,175 @@
+# Introduction to R: Notes on the introduction, vectors, matrices, & factors
+
+# Add your code snippets here
+# Comments
+my_variable <- 5
+my_character <- "character"
+my_logical <- TRUE
+
+# Print the data type
+class(my_variable)
+class(my_character)
+class(my_logical)
+
+# create a vector
+numeric_vector <- c(1,2,3)
+character_vector <- c("a","b","c")
+boolean_vector <- c(TRUE,FALSE, TRUE)
+
+# Print the vectors
+numeric_vector
+character_vector
+boolean_vector
+
+# naming elements of a vector
+names(character_vector) <- c("first character", "second_character", "3rd Character")
+
+# Print the character vector named "first character"
+character_vector["first character"]
+
+# Print all the named elements in the character vector
+names(character_vector)
+
+# set the names vector using another vector
+character_vector_names <- c("first char", "second char", "third char")
+names(character_vector) <- character_vector_names
+
+# print the new names of the character_vector
+names(character_vector)
+
+# Addition of vectors
+A_vector <- c(1,2,3)
+B_vector <- c(2,3,4)
+
+total_vector_sum <- A_vector + B_vector
+total_vector_sum
+
+# There is a sum function
+sum_of_A_Vector <- sum(A_vector)
+sum_of_B_Vector <- sum(B_vector)
+total_vector_sum <- sum_of_A_Vector + sum_of_B_Vector
+total_vector_sum
+
+# > can be used for comparison
+sum_of_A_Vector
+sum_of_B_Vector
+sum_of_A_Vector > sum_of_B_Vector
+
+# R implements 1 based indexing
+A_vector[1]
+
+# R implements named element indexing
+names(A_vector) <- c("1st","2nd","3rd")
+A_vector["3rd"]
+
+# Selecting multiple elements in a vector
+A_vector[c(1,3)]
+
+A_vector[c(1,2,3)]
+
+# Selecting multiple elements using the colon notation 
+A_vector[1:3] # This will select elements 1 & 2 & 3
+
+# Index by name
+A_vector[c("1st","2nd","3rd")]
+
+# You can compare on vectors
+greater_than_two <- A_vector[1:3] > 2
+
+# Use booleans to select elements of a vector
+A_vector[greater_than_two]
+
+# Matrices
+
+# Construct a matrix with 3 rows that contains the numbers 1 up to 9
+named_matrix = matrix(1:9, byrow = TRUE, nrow = 3)
+
+
+# Naming the column & rows of a matrix
+colnames(named_matrix) <- c("col1", "col2","col3")
+rownames(named_matrix) <- c("row1", "row2","row3")
+named_matrix
+
+# Calculating the row sums using rowSums()
+sum_of_rows_vector <- rowSums(named_matrix)
+sum_of_rows_vector
+
+# Add 1 or more columns to a matrix using cbind
+big_matrix <- cbind(named_matrix, sum_of_rows_vector)
+big_matrix
+
+# To check out the contents of a workspace
+ls()
+
+# Add 1 or more rows to a matrix using rbind
+new_row <- c(9,0,1)
+sum_of_new_row <- sum(new_row)
+new_row <- c(new_row, sum_of_new_row)
+new_row
+larger_big_matrix <- rbind(big_matrix, new_row)
+larger_big_matrix
+
+# using colSums to sum the columns
+column_sums <- colSums(larger_big_matrix)
+largest_matrix <- rbind(larger_big_matrix, column_sums)
+largest_matrix
+
+# Selecting columns & rows in a matrix
+
+print("Selecting all rows in the 1st column of the matrix")
+largest_matrix[,1] # all rows, column 1
+
+print("Selecting all columns in the 1st row of the matrix")
+largest_matrix[1,] # row 1, all columns
+
+print("Selecting the first two columns in the 1st row of the matrix")
+largest_matrix[1,1:2]
+
+# Arithmetic on matrices
+print("using operators on matrices performs element-wise operations on the matrix")
+largest_matrix_divided_by_5 <- largest_matrix / 5
+largest_matrix_divided_by_5
+
+# Taking the dot product of two matrices
+dot_product <- largest_matrix * largest_matrix_divided_by_5
+print("dot_product:")
+dot_product
+
+# factors will identify the atomic types in an array
+sex_vector <- c("Male","Female","Female","Male","Male")
+factor_sex_vector <- factor(sex_vector)
+factor_sex_vector
+
+# Nominal Vs. Ordinal categorical variables
+print("Nominal categorical variables have no order. Animals are an example:")
+animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+factor_animals_vector <- factor(animals_vector)
+factor_animals_vector
+
+# Temperature is an example of Ordinal categorical variables
+temperature_vector <- c("High","Low","High","Low","Medium")
+factor_temperature_vector <- factor(temperature_vector)
+factor_temperature_vector
+
+# Assigning levels to factor vectors:
+# A factor vector with abbreviations can have the factor levels explicitly set
+survey_vector <- c("M","F","F","M","M")
+factor_survey_vector <- factor(survey_vector)
+
+print("Before assigning the factor levels, they are identified by M & F")
+factor_survey_vector
+
+print("After explicit assignment of the factor levels, the levels are fully described")
+levels(factor_survey_vector) <- c("Female", "Male")
+factor_survey_vector
+
+# Summary
+print("Use summary() to show the contents of a variable:")
+summary(factor_survey_vector)
+
+# Explicitly creating levels so that they may be ordered: 
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+factor_speed_vector <- factor(speed_vector, ordered=TRUE, levels = c("slow","medium","fast"))
+
+factor_speed_vector
+summary_factor_speed_vector
