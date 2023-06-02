@@ -183,3 +183,47 @@ summary_factor_speed_vector
 
 # Creating datafames
 # The function data.frame creates a dataframe. Pass an arbitrary number of vectors into the data.frame() to create the dataframe where each column is a vector and each row is an observation in that vector
+
+# The head() method will show the first observations of a dataframe.
+# The tail() method will show the last observations of a dataframe.
+# str() will show you the structure of your dataframe where each column is an observation and each row is a variable
+# str will show you the total number of observations, variables, a full list of the variable names, the data type of each variable, & the first observations
+
+# Creating dataframes
+# The function data.frame creates a dataframe. Pass an arbitrary number of vectors into the data.frame() to create the dataframe where each column is a vector and each row is an observation in that vector
+
+# Selecting values in a dataframe
+# select the values in a dataframe by selecting the values in a column: eg planets_df[1:5, "diameter"] where "diameter" is the column name.
+# To select all the rows of a column, a.k.a. variable, in a dataframe, use the dollar sign shortcut as in: planets_df$diameter
+
+# Subset: to show a subset of a dataset, use the subsets() method. subset(planets_df, subset = diameter < 1)
+
+# Ordering:
+# The order function will give you a ranked position of each element when it is applied on a variable, such as a vector.
+# E.G. positions <-  order(planets_df$diameter)
+# planets_df[positions,]
+
+     # name               type diameter rotation rings
+# 1 Mercury Terrestrial planet    0.382    58.64 FALSE
+# 4    Mars Terrestrial planet    0.532     1.03 FALSE
+# 2   Venus Terrestrial planet    0.949  -243.02 FALSE
+# 3   Earth Terrestrial planet    1.000     1.00 FALSE
+# 8 Neptune          Gas giant    3.883     0.67  TRUE
+# 7  Uranus          Gas giant    4.007    -0.72  TRUE
+# 6  Saturn          Gas giant    9.449     0.43  TRUE
+# 5 Jupiter          Gas giant   11.209     0.41  TRUE
+
+# R datatypes:
+# There are lists, vectors, matrices, DataFrames
+
+# Lists()
+# Lists can store booleans, numeric, & characters all in the same object
+# To create a list, use the list() function
+# Name your lists with assignment: my_list <- list(name1 = your_comp, name2 = your_comp2)
+# Name your lists using names(): my_list <- list(your_comp1, your_comp2); names(my_list) <- c("name1","name2")
+# After naming a list, dereference using the name: my_list$name1
+# Again, lists use naming first, then variable assignment; E.G. list(moviename=mov, actors = act, reviews = rev) where data is stored in mov, act, & rev and the names are moviename, actors, & reviews
+
+# Dereferencing lists: 
+# use [[]] do dereference components of lists; follow with [] to dereference individual elements in a list component; E.G. shining_list[["actors"]][1] results in "Jack Nicholson"
+
