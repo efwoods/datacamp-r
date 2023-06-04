@@ -227,3 +227,155 @@ summary_factor_speed_vector
 # Dereferencing lists: 
 # use [[]] do dereference components of lists; follow with [] to dereference individual elements in a list component; E.G. shining_list[["actors"]][1] results in "Jack Nicholson"
 
+# Equality
+# In R booleans, strings, and numbers can be compared. 
+# Operators: 
+# == 
+# !=
+# < 
+# >
+# Vector to vector comparison is possible.
+# 
+# Comparison of logicals
+TRUE == FALSE # FALSE is not equal to TRUE
+
+# Comparison of numerics
+-6 * 14 != 17 - 101 # This results in FALSE because they are both equal
+
+# Comparison of character strings
+"useR" == "user" # This results in FALSE
+
+# Compare a logical with a numeric
+TRUE == 1 # This results in TRUE
+
+# R Logical operators
+# & is a logical AND
+# | is a logical OR
+# ! is a logical not
+
+# && returns logical result of the first element of each element whereas & performs the logical result on each element
+
+# In order to compare ranges of elements, compare using the following notation:
+# 3 < x | x < 10 
+# The equation above will compare if x is between 3 and 10
+
+
+# If condition
+# If-else syntax:
+# if (statement) { } else if (condition) { } else { }
+
+# While loops
+# while (condition) { code }
+# breaks will exit the while loop completely.
+
+# For loops
+# *** Remember the () are necessary as syntax in R
+# for (p in primes) { print(p)} # this will print the element in primes
+# for (i in 1:length(primes)) { print(primes[[i]])} # this will print the element in primes
+# using "break" will exit the for or while loop completely
+# using "next" will continue looping through the for loop, but will discontinue the current loop iteration
+
+# Remember to select the list of element with [[]]; otherwise, you are selecting the component i.e. primes$component
+
+# Paste
+# paste will concatonate strings
+# e.g.: paste(month.abb, "is the", nth, "month of the year.") will print
+# 'Jan is the 1st month of the year.' when nth is '1st' or a vector of '1st','2nd', etc. & month.abb contains a collection of abbreviated months
+
+# Function documentation:
+# help(foo)
+# ?foo
+
+# Mean
+# mean(x, trim= 0.2, na.rm= TRUE) # trim will set the number of decimal places; na.rm = TRUE will remove any NA values from x and calculate the mean; trim & na.rm are optional values
+
+# Absolute value
+# abs() will use the absolute value of any integer
+
+# Mean absolute value
+# mean(abs(x - y), na.rm=TRUE) # This will remove all NA values, take the absolute value of the difference between x & y, and take the mean of the differences when x & y are a collection of values
+
+# Functions
+# the order of the function inputs does not matter so long as the input name is specified.
+# The function will return the last line of code if there is no return() statement in the function
+# The return() function will return a value and will discontinue the function similar to a break() statement
+
+# Writing functions:
+# creating a function is similar to creating a function pointer in c:
+# function_name <- function(arg1, arg2){ body }
+# functions can be declared with no arguments; i.e. function() etc...
+
+# Function scope:
+# variables included inside a function do not have global scope
+
+# Variables are passed by value not by reference; This means that a variable that is passed into a function an altered is not updated unless explicitly assigned to the new value outside of the function; i.e.: count <- new_count_value(count) # this will update count; new_count_value(count){count <- count +1; return(count)}; This will return count + 1, but the initial value of count declared outside the function will remain unchanged.
+
+# R packages:
+# CRAN: Comprehensive R Archive Network: this is the archive repository where all R packages are located
+# basic: this includes mean(), abs(), & sample(); this is the basic package
+# ggvis: This is the package that enables plot visualization; This is not included by default
+
+# Install R packages:
+# To install R packages, use the function: install.packages("ggvis")
+
+# Finding R packages that are installed:
+# use search()
+
+# Load packages 
+# After installing a package, load the package using library()
+# require() will throw a warning rather than an error if a package is not installed
+
+# Double quotes are optional when defining packages to load: i.e. library(rjson) or library("rjson") will both work; The same is true with require("rjson") & require(rjson)
+
+# lapply
+# The lapply function will take an argument, x, and a function, foo, and apply foo to the left argument, x, where "x" is a vector. 
+# To apply multiple arguments to a vector, call:
+# lapply(vector, foo, foo_argument)
+
+# Anonymous functions
+# Anonymous functions are similar to lambda functions; To use anonymous functions, literally declare them as follows:
+# function(x) { 3*x }
+
+# unlist: This will map a list to a vector; list() always returns a list
+
+# sapply: This will use lapply and unlist all at once; set USE.NAMES = FALSE to not use names when returning the value of sapply ( this will return only the vector). Sapply tries to SIMPLIFY a list to an array.
+
+# Comparing two vectors with the identical() function
+
+# vapply: 
+# similar to sapply, vapply will map a function to a vector. vapply takes a return type as a mandatory argument.
+
+# Utilities
+#seq(): Generate sequences, by specifying the from, to, and by arguments.
+#rep(): Replicate elements of vectors and lists.
+#sort(): Sort a vector in ascending order. Works on numerics, but also on #character strings and logicals.
+#rev(): Reverse the elements in a data structures for which reversal is defined.
+#str(): Display the structure of any R object.
+#append(): Merge vectors or lists.
+#is.*(): Check for the class of an R object.
+#as.*(): Convert an R object from one class to another.
+#unlist(): Flatten (possibly embedded) lists to produce a vector.
+
+# Grep
+# grepl: Returns true when a pattern is found in a character string
+# grep: returns a vector of indices that contain the pattern 
+
+# Regex:
+# . : "." matches anycharacter
+# * : "*" matches zero or more times
+# \\ : "\\" escapes metacharacters to literally mean the character. i.e.: \\$ literally is interpreted to $.
+# $ : marks the end of a string. i.e.: d$ will search for words ending in "d".
+# ^ : marks the beginning of a string. i.e.: ^s will search for words beginning with "s".
+# \\s : match a space
+# [] : match a group
+# + : match 1 or more times
+# [0-9]+ : match a number 1 or more times
+# () : used to define replacement.
+# sub()
+# substitute replace a part of a string with another string.
+# () will set a variable for replacement into the position of \\1; 
+# E.G. : sub(".*\\s([0-9]+)\\snomination.*$", "\\1", awards)
+# awards <- "1 win and 2 nominations."
+# therefore 2 nominations will match, the 2 will be captured, and the string will be substituted by what is captured.
+
+
