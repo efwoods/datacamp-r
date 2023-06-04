@@ -1,0 +1,46 @@
+# Equality
+# In R booleans, strings, and numbers can be compared. 
+# Operators: 
+# == 
+# !=
+# < 
+# >
+# Vector to vector comparison is possible.
+# 
+# Comparison of logicals
+TRUE == FALSE # FALSE is not equal to TRUE
+
+# Comparison of numerics
+-6 * 14 != 17 - 101 # This results in FALSE because they are both equal
+
+# Comparison of character strings
+"useR" == "user" # This results in FALSE
+
+# Compare a logical with a numeric
+TRUE == 1 # This results in TRUE
+
+# R Logical operators
+# & is a logical AND
+# | is a logical OR
+# ! is a logical not
+
+# && returns logical result of the first element of each element whereas & performs the logical result on each element
+
+# In order to compare ranges of elements, compare using the following notation:
+# 3 < x | x < 10 
+# The equation above will compare if x is between 3 and 10
+
+
+# If condition
+# If-else syntax:
+# if (statement) { } else if (condition) { } else { }
+
+# While loops
+# while (condition) { code }
+# breaks will exit the while loop completely.
+
+# For loops
+# for (p in primes) { print(p)} # this will print the element in primes
+# for (i in 1:length(primes)) { print(primes[i])} # this will print the element in primes
+
+
