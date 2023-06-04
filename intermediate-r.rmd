@@ -41,6 +41,4 @@ TRUE == 1 # This results in TRUE
 
 # For loops
 # for (p in primes) { print(p)} # this will print the element in primes
-# for (i in 1:length(primes)) { print(primes[i])} # this will print the element in primes
-
-
+# for (i in 1:length(primes)) { print(primes[[i]])} # this will print the element in primes
