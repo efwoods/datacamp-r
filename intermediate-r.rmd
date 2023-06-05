@@ -30,7 +30,6 @@ TRUE == 1 # This results in TRUE
 # 3 < x | x < 10 
 # The equation above will compare if x is between 3 and 10
 
-
 # If condition
 # If-else syntax:
 # if (statement) { } else if (condition) { } else { }
@@ -42,3 +41,69 @@ TRUE == 1 # This results in TRUE
 # For loops
 # for (p in primes) { print(p)} # this will print the element in primes
 # for (i in 1:length(primes)) { print(primes[[i]])} # this will print the element in primes
+
+# unclass(): unclass will retrieve the data from an object
+
+# Date & times
+# Sys.Date() : Date object; stores the days since January 1st 1970; 
+# also called with date()
+# Sys.time(): POSIXct object; stores the number of seconds since January 1st 1970
+
+# as.Date : converts a string to a Date object; After mapping the string into a date object using the symbols below, other information of the date object can be mapped from a date object into a string using the "format" function.  
+# i.e. : 
+# 1) name the string: str1 <- "May 23, '96"; 
+# 2) define the structure of the string to convert into a date object: as.Date("str1", format="%B %d, '%y"); 
+# This will tell the Date object, "there is a month in upper-case, there is a two-digit date, & there is a 2-digit year; please convert this into a date object". 
+# The date object will respond by creating an object %Y-%m-%d (this is the standard format); from here, the date object can be formatted to extract information such as the day of the week: i.e. format(date_obj, "Today is a %A.") will yield: Today is a Monday. 
+
+# Date symbols:
+
+# %Y: 4-digit year (1982)
+# %y: 2-digit year (82)
+# %m: 2-digit month (01)
+# %d: 2-digit day of the month (13)
+# %A: weekday (Wednesday)
+# %a: abbreviated weekday (Wed)
+# %B: month (January)
+# %b: abbreviated month (Jan)
+
+# Standard syntax for a Date object is "%Y-%m-%d" or "%Y/%m/%d"
+
+# format() : the format function will convert Date objects into strings; 
+# i.e.: format(Sys.Date(), format = "Today is a %A!") prints out: "Today is a Monday!"
+# i.e.: format(Sys.Date(), format = "Today is %B %d %Y.") prints out: Today is June 05 2023;
+
+# Time 
+
+# Time symbols
+# %H: hours as a decimal number (00-23)
+# %I: hours as a decimal number (01-12)
+# %M: minutes as a decimal number
+# %S: seconds as a decimal number
+# %T: shorthand notation for the typical format %H:%M:%S
+# %p: AM/PM indicator
+
+# as.POSIXct is used to create a time object. The standard format of the time object is "%Y-%m-%d %H:%M:%S"
+
+# The process for formatting a string into a POSIXct object before creating a new string formatted with the time object is similar to the date object process above.
+# i.e. : 
+# 1) Define the string:
+# str1 <- "May 23, '96 hours:23 minutes:01 seconds:45"
+# 2) Define the symbols in the string to format the string into a time object.
+# time1 <- as.POSIXct(str1, format = "%B %d, '%y hours:%H minutes:%M seconds:%S"); notice how the text "hours:" matches the hours in the string. Yet, what is extracted into the time1 object is: "1996-05-23 23:01:45 UTC", which is standard POSIXct time format.
+# 3) Format the information into whichever string you should choose: 
+# format(time1, "%M"); This will print: "01"
+
+
+# Because Date and Time are represented by integer values, you can perform arithmetic calculations on them, and R will convert these calculations back to standard time format for human readability.
+# diff() : the difference between integers in a vector
+
+# Adding and subtracting time
+# now <- Sys.time()
+# now + 3600          # add an hour
+# now - 3600 * 24     # subtract a day
+
+# birth <- as.POSIXct("1879-03-14 14:37:23")
+# death <- as.POSIXct("1955-04-18 03:47:12")
+# einstein <- death - birth
+# einstein

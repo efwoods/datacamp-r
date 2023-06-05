@@ -1,0 +1,95 @@
+# [Tidyverse_Cheat_Sheet](https://res.cloudinary.com/dyd911kmh/image/upload/v1676302697/Marketing/Blog/Tidyverse_Cheat_Sheet.pdf)
+
+# Piping data
+# %>% : this is a pipe. It will pipe whatever data comes before the pipe into what comes after the pipe. 
+
+# filter function
+# filter() : Use filter to filter on data. You can create a subset of a dataset by filtering on it. 
+# i.e. : 
+# gapminder %>% filter(year == "2007"); This will filter all the gapminder data to show only the data for which the year was 2007.
+
+# arrange function
+# arrange() : tell it what column you want to arrange by; arrange will sort ascending by default
+# Example: 
+# library(gapminder)
+# library(dplyr)
+
+# Sort in ascending order of lifeExp
+# gapminder %>%
+#     arrange(lifeExp)
+
+  
+# Sort in descending order of lifeExp
+# gapminder %>%
+#     arrange(desc(lifeExp))
+
+# descending function
+# desc() : used to sort in descending order; 
+
+# Mutate function
+# mutate() : adds a column to your data; syntax is mutate(column_to_change_or_add = operation_to_change_it_to)
+# note that changing the data using mutate does not change the original dataset when a pipe is used. 
+
+# Plotting
+# ggplot() : plot a scatterplot with ggplot; import the library "ggplot2"; 
+# plot with the example following example: 
+# ggplot(data, aes(x = pop, y = gdpPercap)) + geom_point()
+# The example above will plot the data give as data. aes will create an asthetic mapping of x & y data points, and geom_point will add geometric style points to the graph
+# See the full example below: 
+# library(gapminder)
+# library(dplyr)
+# library(ggplot2)
+#
+# gapminder_1952 <- gapminder %>%
+#  filter(year == 1952)
+#
+## Change to put pop on the x-axis and gdpPercap on the y-axis
+# ggplot(gapminder_1952, aes(x = pop, y = gdpPercap)) +
+# geom_point() 
+
+# scale_x_log10():
+# Change the x-axis to be logarithmic 
+# ggplot(gapminder_1952, aes(x = pop, y = gdpPercap)) +
+# geom_point() + scale_x_log10()
+
+# scale_y_log10():
+# Change the x-axis to be logarithmic 
+# ggplot(gapminder_1952, aes(x = pop, y = gdpPercap)) +
+# geom_point() + scale_x_log10()
+
+# to add color
+# To add color, add color inside the aes function:
+# ggplot(gapminder_1952, aes(x = pop, y = gdpPercap, color = continent))
+
+# to assign size
+# To change size, add size inside the aes function:
+# ggplot(gapminder_1952, aes(x = pop, y = gdpPercap, color = continent, size = gdpPercap))
+
+# Faceting
+# face_wrap():
+# faceting will separate your plot into subplots
+# first write your ggplot function then add the faceting on the same line
+# ... + face_wrap(~ continent)
+# in the example above, ~ means "with respect to"
+
+# Verbs()
+
+
+# Summarize
+# summarize(): summarize data using syntax (data_summary_name = foo(data_to_summarize))
+# it is possible to summarize multiple variables at once
+# Example: 
+# library(gapminder)
+# library(dplyr)
+
+# Filter for 1957 then summarize the median life expectancy and the maximum GDP per capita
+# gapminder %>%
+#     filter(year == 1957) %>%
+#     summarize(medianLifeExp = median(lifeExp), maxGdpPercap = max(gdpPercap))
+
+# Median
+# median() : find the median of the data 
+
+# max(): find the max of the data
+
+

@@ -135,6 +135,9 @@ dot_product <- largest_matrix * largest_matrix_divided_by_5
 print("dot_product:")
 dot_product
 
+# Matrix multiplication
+dot_product <- largest_matrix %*% largest_matrix_divided_by_5
+
 # factors will identify the atomic types in an array
 sex_vector <- c("Male","Female","Female","Male","Male")
 factor_sex_vector <- factor(sex_vector)
@@ -194,7 +197,7 @@ summary_factor_speed_vector
 
 # Selecting values in a dataframe
 # select the values in a dataframe by selecting the values in a column: eg planets_df[1:5, "diameter"] where "diameter" is the column name.
-# To select all the rows of a column, a.k.a. variable, in a dataframe, use the dollar sign shortcut as in: planets_df$diameter
+# To select all the rows of a column, where the term "column" & "variable" are being used interchangeably, in a dataframe, use the dollar sign shortcut as in: planets_df$diameter
 
 # Subset: to show a subset of a dataset, use the subsets() method. subset(planets_df, subset = diameter < 1)
 
@@ -253,7 +256,7 @@ TRUE == 1 # This results in TRUE
 # | is a logical OR
 # ! is a logical not
 
-# && returns logical result of the first element of each element whereas & performs the logical result on each element
+# && returns logical result of the first element of each element whereas "&"" performs the logical result on each element
 
 # In order to compare ranges of elements, compare using the following notation:
 # 3 < x | x < 10 
@@ -308,7 +311,9 @@ TRUE == 1 # This results in TRUE
 # Function scope:
 # variables included inside a function do not have global scope
 
-# Variables are passed by value not by reference; This means that a variable that is passed into a function an altered is not updated unless explicitly assigned to the new value outside of the function; i.e.: count <- new_count_value(count) # this will update count; new_count_value(count){count <- count +1; return(count)}; This will return count + 1, but the initial value of count declared outside the function will remain unchanged.
+# Variables are passed by value not by reference; This means that a variable that is passed into a function and altered is not updated unless explicitly assigned to the new value outside of the function;
+# i.e.: count <- new_count_value(count) # this will update count outside of the function; 
+# new_count_value(count){count <- count +1; return(count)}; This will return count + 1, but the initial value of count declared outside the function will remain unchanged.
 
 # R packages:
 # CRAN: Comprehensive R Archive Network: this is the archive repository where all R packages are located
@@ -346,15 +351,15 @@ TRUE == 1 # This results in TRUE
 # similar to sapply, vapply will map a function to a vector. vapply takes a return type as a mandatory argument.
 
 # Utilities
-#seq(): Generate sequences, by specifying the from, to, and by arguments.
-#rep(): Replicate elements of vectors and lists.
-#sort(): Sort a vector in ascending order. Works on numerics, but also on #character strings and logicals.
-#rev(): Reverse the elements in a data structures for which reversal is defined.
-#str(): Display the structure of any R object.
-#append(): Merge vectors or lists.
-#is.*(): Check for the class of an R object.
-#as.*(): Convert an R object from one class to another.
-#unlist(): Flatten (possibly embedded) lists to produce a vector.
+# seq(): Generate sequences, by specifying the from, to, and by arguments.
+# rep(): Replicate elements of vectors and lists.
+# sort(): Sort a vector in ascending order. Works on numerics, but also on #character strings and logicals.
+# rev(): Reverse the elements in a data structures for which reversal is defined.
+# str(): Display the structure of any R object.
+# append(): Merge vectors or lists.
+# is.*(): Check for the class of an R object.
+# as.*(): Convert an R object from one class to another.
+# unlist(): Flatten (possibly embedded) lists to produce a vector.
 
 # Grep
 # grepl: Returns true when a pattern is found in a character string
