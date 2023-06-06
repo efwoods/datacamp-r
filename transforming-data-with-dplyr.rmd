@@ -1,0 +1,46 @@
+# VERBS
+# filter()
+
+# select
+# select(): this is used to select data
+# Example:
+# counties %>%
+#  # Select the columns
+#  select("state", "county", "population","poverty")
+# select a range of columns with ":";
+# i.e. drive:work_at_home
+
+# glimpse
+# glimpse(): will take a glimpse of the data
+
+# arrange
+# arrange(): this will arrange the data; 
+# Arrange sorts data ascending by default
+# desc() can be applied to sort the data descending
+# Examples
+# counties_selected %>%
+#   arrange(population)
+
+# count
+# count(): this will count the number of items in a set; 
+# count takes arguments of count(variable_in_each_to_count, wt = variable_to_rank_by,  sort = TRUE); sort TRUE will sort to descending;
+
+# slice_min(): take the smallest of a group
+# slice_max(): take the largest of a group
+# ungroup(): Remove the grouping of group_by
+
+# starts_with(): starts with a prefix
+# ends_with(): ends with a prefix
+# rename(): rename a column
+# transmute(): contains a subset of columns like select, but can also transform columns like mutate to perform calculations
+
+# select & rename doesn't change the values in the data
+# transmute & mutate change the values in the data
+
+# select & transmute: drop columns that are not specified in the data
+# rename & mutate: keep other variables in the data, but change what is specified
+
+# item in a collection
+# filter for an item in a collection by using %in%
+# Example:
+# filter(name %in% c("steven", "thomas", "evan"))
