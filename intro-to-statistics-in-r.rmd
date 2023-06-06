@@ -1,0 +1,38 @@
+# Measure of spread
+# seq(): creates a sequence of numbers 
+
+# quantile(): calcultes the quantiles of a spread of numbers
+# Define how split the quantiles using probs = c(0, 0.2, 0.4, 0.6, 0.8, 1)
+# Example
+# quantile(food_consumption$co2_emission, probs = c(0, 0.2, 0.4, 0.6, 0.8, 1))
+# quantile(food_consumption$co2_emission, seq(0,1,.1)) # sequence will create the quantiles here;
+
+# Variance
+# var(): this function is used to calculate the variance
+
+# Standard deviation
+# sd(): this function is used to calculate the standard deviation 
+
+# The IQR is calculated by the first and third quartile ranges
+# Calculate total co2_emission per country: emissions_by_country
+
+# Example
+# emissions_by_country <- food_consumption %>%
+#  group_by(country) %>%
+#  summarize(total_emission = sum(co2_emission))
+
+# Compute the first and third quartiles and IQR of total_emission
+# q3 <- quantile(emissions_by_country$total_emission, 0.75)
+# q1 <- quantile(emissions_by_country$total_emission, 0.25)
+# iqr <- q3 - q1
+
+# sample
+# sample_n(1) : this will choose 1 sample randomly; it is used with a pipe; 
+# Example use:
+# data %>% sample_n(1)
+
+# set_seed(5) will set the seed so the same data will be pulled everytime from the data;
+# sampling without replacement; taking a sample without replacing the sample in the dataset;
+
+# sample with replacement:
+# sample_n(5, replace = TRUE)

@@ -115,7 +115,6 @@
 
 # Verbs()
 
-
 # Summarize
 # summarize(): summarize data using syntax (data_summary_name = foo(data_to_summarize))
 # it is possible to summarize multiple variables at once
