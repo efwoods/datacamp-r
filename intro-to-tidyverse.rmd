@@ -65,6 +65,47 @@
 # To change size, add size inside the aes function:
 # ggplot(gapminder_1952, aes(x = pop, y = gdpPercap, color = continent, size = gdpPercap))
 
+# To ensure the graph includes 0 on the y axis:
+# expand_limits(y=0)
+
+# To create a scatter plot
+# geom_point(): add after the ggplot to create a scatterplot
+
+# To create a line graph
+# geom_line(): add this after the ggplot to create a line graph
+
+# To create a bar plot
+# geom_col(): 
+
+# To create a histogram
+# geom_histogram() : This function will create a histogram. The width of each column of the histogram can be altered by modifying the variable "bins";
+# Example:
+# library(gapminder)
+# library(dplyr)
+# library(ggplot2)
+# 
+# gapminder_1952 <- gapminder %>%
+#   filter(year == 1952)
+# 
+# # Create a histogram of population (pop), with x on a log scale
+# ggplot(gapminder_1952, aes(x = pop)) + geom_histogram(bins = 50) + scale_x_log10()
+
+# To create a boxplot
+# geom_boxplot(): This function will create a boxplot. 
+# Example: 
+# library(gapminder)
+# library(dplyr)
+# library(ggplot2)
+# 
+# gapminder_1952 <- gapminder %>%
+#   filter(year == 1952)
+# 
+# # Create a boxplot comparing gdpPercap among continents
+# ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) + geom_boxplot() + scale_y_log10()
+
+# Add a title to the graph
+# ggtitle("Your title here")
+
 # Faceting
 # face_wrap():
 # faceting will separate your plot into subplots
@@ -90,6 +131,9 @@
 # Median
 # median() : find the median of the data 
 
+# Max
 # max(): find the max of the data
 
+# Groupby
+# group_by() : group the data by a column  
 
