@@ -1,8 +1,9 @@
 # datacamp-r
 Notes of R from datacamp. 
-## Course Progression: 
   *Reason to take the track is in parenthesis.*
-0. [ ] [Data Scientist Professional with R](https://app.datacamp.com/learn/career-tracks/data-scientist-professional-with-r): 107 hours
+## Overall Goal
+1. [ ] [Data Scientist Professional with R](https://app.datacamp.com/learn/career-tracks/data-scientist-professional-with-r): 107 hours
+## Key Course Progression: 
 1. [x] [Intro to R](https://app.datacamp.com/learn/courses/free-introduction-to-r): 4 hours
 2. [x] [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r): 6 hours
 3. [x] [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse): 4 hours
