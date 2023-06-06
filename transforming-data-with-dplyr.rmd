@@ -26,7 +26,7 @@
 # count takes arguments of count(variable_in_each_to_count, wt = variable_to_rank_by,  sort = TRUE); sort TRUE will sort to descending;
 
 # slice_min(): take the smallest of a group
-# slice_max(): take the largest of a group
+# slice_max(): take the largest of a group; n = 1 will select the number of rows to slice
 # ungroup(): Remove the grouping of group_by
 
 # starts_with(): starts with a prefix
