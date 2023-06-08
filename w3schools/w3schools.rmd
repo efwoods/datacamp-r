@@ -278,6 +278,321 @@ Matrix_Combined_cols
 ```{r}
 # Plotting
 plot(1,3)
+```
+
+```{r}
 plot(c(1,8),c(3,10)) # draw two points at 1,3 & 8,10
 ```
 
+```{r}
+plot(1:10)
+```
+```{r}
+# Drawing a line
+plot(1:10, type="l")
+```
+```{r}
+# Plot Labels
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis")
+```
+
+```{r}
+# Graph Appearance
+
+## Color
+plot(1:10, col="red")
+
+## Size
+plot(1:10, cex=2)
+
+# Point Shape
+plot(1:10, pch=25, cex=2)
+```
+
+```{r}
+# Line Graphs
+
+plot(1:10, type="l")
+
+```
+```{r}
+plot(1:10, type="l", col="blue")
+```
+```{r}
+plot(1:10, type="l", lwd=2)
+```
+
+```{r}
+# Line Styles
+
+plot(1:10, type="l", lwd=5, lty=3)
+
+# 0 removes the line
+# 1 displays a solid line
+# 2 displays a dashed line
+# 3 displays a dotted line
+# 4 displays a "dot dashed" line
+# 5 displays a "long dashed" line
+# 6 displays a "two dashed" line
+```
+
+```{r}
+# Multiple Lines
+
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type="l", col="blue")
+lines(line2, type="l", col="red")
+```
+
+```{r}
+# Scatter Plots
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x,y, main="Observation of Cars",xlab="Car age", ylab="Car speed") # Plot with labeling
+
+```
+
+```{r}
+# Draw two plots on the same figure
+# day one, the age and speed of 12 cars:
+x1 <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y1 <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+# day two, the age and speed of 15 cars:
+x2 <- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)
+y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
+
+plot(x1, y1, main="Observation of Cars", xlab="Car Age", ylab="Car Speed", col="red", cex=2)
+points(x2,y2, col="blue", cex=2)
+
+```
+
+```{r}
+# R Pie Charts
+
+x <- c(seq(from=10, to=40, by=10))
+pie(x) # This will draw a pie chart
+# The pie chart will be created counterclockwise from the x-axis
+```
+```{r}
+# Change the initial angle
+pie(x, init.angle = 90)
+```
+
+```{r}
+# Labels & Header
+# Create a vector of pies
+x <- c(10,20,30,40)
+
+# Create a vector of labels
+mylabel <- c("Apples", "Bananas", "Cherries", "Dates")
+
+# Display the pie chart with labels
+pie(x, label=mylabel, main="Fruits")
+```
+
+```{r}
+# Colors
+colors <- c("Red","Green", "Blue", "Yellow")
+
+# Create a vector of pies
+x <- c(10,20,30,40)
+
+# Create a vector of labels
+mylabel <- c("Apples", "Bananas", "Cherries", "Dates")
+
+# Display the pie chart with colors
+pie(x, mylabel, col=colors, main="Pie Chart")
+```
+
+```{r}
+# Add a legend to your pie graph
+# Colors
+colors <- c("Red","Green", "Blue", "Yellow")
+
+# Create a vector of pies
+x <- c(10,20,30,40)
+
+# Create a vector of labels
+mylabel <- c("Apples", "Bananas", "Cherries", "Dates")
+
+# Display the pie chart with colors
+pie(x, mylabel, col=colors, main="Pie Chart")
+
+# Adding the legend
+legend("bottomright", mylabel, fill=colors)
+
+# Locations for the legend
+# bottomright, bottom, bottomleft, left, topleft, top, topright, right, center
+```
+
+
+```{r}
+# Bar Charts
+
+# x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2,4,6,8)
+
+barplot(y, names.arg = x)
+
+```
+
+```{r}
+# Bar Color
+ # x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2,4,6,8)
+
+barplot(y, names.arg = x, col="Red")
+```
+
+```{r}
+# Bar Density / Texture
+
+ # x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2,4,6,8)
+
+# Density
+barplot(y, names.arg = x, col="Red", density=10)
+```
+
+```{r}
+# Bar Width
+
+ # x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2,4,6,8)
+
+# Density
+barplot(y, names.arg = x, width=c(1,2,3,4))
+```
+
+```{r}
+# Horizontal Bars
+
+ # x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2,4,6,8)
+
+barplot(y, names.arg=x, horiz=TRUE)
+```
+
+```{r}
+# STATISTICS
+# Print the mtcars dataset (included by default)
+mtcars
+```
+
+```{r}
+# To get information about the dataset
+?mtcars
+```
+
+```{r}
+# Get dimensions of the dataset
+dim(mtcars) # 32 observations & 11 variables
+```
+```{r}
+# To install dplyr & tidyverse (optional)
+install.packages("dplyr")
+install.packages("tidyverse")
+library(dplyr)
+library(tidyverse)
+# cheat-sheet: https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf
+```
+```{r}
+glimpse(mtcars)
+```
+
+```{r}
+# Get the function names of each row
+Data_Cars <- mtcars
+rownames(Data_Cars)
+```
+
+```{r}
+# Printing Variable Values
+Data_Cars$cyl
+```
+
+```{r}
+Data_Cars <- mtcars
+sort(Data_Cars$cyl)
+```
+
+```{r}
+arrange(mtcars,  desc(disp), wt, cyl)
+```
+
+```{r}
+# Analyzing the Data
+Data_Cars  <- mtcars
+
+summary(Data_Cars)
+```
+
+```{r}
+# Max & Min
+Data_Cars <- mtcars
+
+which.max(Data_Cars$hp) # This will present the index of the row
+which.min(Data_Cars$hp) # This will present the index of the row with the minimum value of hp
+
+max(Data_Cars$hp) # This will present the maximum value
+min(Data_Cars$hp) # This will present the minimum value
+
+rownames(Data_Cars)[which.max(Data_Cars$hp)]
+rownames(Data_Cars)[which.min(Data_Cars$hp)]
+```
+
+```{r}
+# Mean, Median, & Mode
+
+Data_Cars  <- mtcars
+
+# Mean
+mean(Data_Cars$wt)
+
+# Median
+median(Data_Cars$wt)
+
+# Mode
+names(sort(-table(Data_Cars$wt)))[1]
+```
+
+```{r}
+-table(Data_Cars$wt) # This gives the value of -1 to each item in the data
+table(Data_Cars$wt) # This give the value of 1 to each item in the data
+
+sort(-table(Data_Cars$wt)) # This will sort from least to greatest, & count each time a duplicate is identified.
+# The mode will be at the beginning of this array.
+
+sort(table(Data_Cars$wt)) # This will sort from least to greatest, & count the number of times each duplicte is identified. 
+# The mode will be at the end of this array.
+
+# Find the Mode
+names(sort(-table(Data_Cars$wt)))[1] # The table is tallied by negative values; The first number will be the most negative number (i.e. the counted the most times);
+
+names(sort(desc(table(Data_Cars$wt))))[1] # This will sort the positive values of the table in a descending order such that the number with the greatest value is the first index in the array; 
+
+tail(names(sort(table(Data_Cars$wt))), n=1) # Here the last index is address with tail since the table is sorted from least to greatest as shown below:
+
+sort(table(Data_Cars$wt))
+
+# names will grab the table name, which is the name of the data we are interested in.
+```
