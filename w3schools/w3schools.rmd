@@ -11,26 +11,273 @@ print(" code chunk == ctrl + shift + i ")
 
 ```{r}
 # Datatypes
-w  <- 9 # Numeric
-x  <- 10.5 # Numeric
-y  <- 10L # Integer
-z  <- 1i # Complex
+w <- 9 # Numeric
+x <- 10.5 # Numeric
+y <- 10L # Integer
+z <- 1i # Complex
 ```
 
 
 ```{r}
 # Type Conversion
 # as.integer()
-a  <- as.numeric(y)
+a <- as.numeric(y)
 print(a)
 
 # as.integer()
-b  <-  as.integer(w)
+b <- as.integer(w)
 class(b)
 
 # as.complex()
-c  <- as.complex(w)
+c <- as.complex(w)
 c
 class(c)
+```
+
+```{r}
+# Functions
+abs(-4.7)
+max(1, 4, 24)
+min(4, 2, 5)
+ceiling(1.4)
+floor(1.4)
+```
+
+```{r}
+# Strings
+"hello"
+"hello"
+string <- "Hello World"
+# multiline string is a single line. \n is only added at line breaks
+multiline_string <- "Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."
+cat(multiline_string) # addes linebreaks in the same position as the code
+nchar(string) # string length
+grepl("H", string) # Check a string for a sequence of characters in a string
+grepl("h", string)
+grepl("Hello", string)
+grepl("X", string)
+
+paste(string, multiline_string) # combine two strings
+```
+
+```{r}
+# Escape characters
+# \\ backslash
+# \n New line
+# \r Carriage Return
+# \t Tab
+# \b Backspace
+```
+
+```{r}
+# assignment operators
+my_var <- 3
+my_var
+my_new_var <<- 4 # This is a global assigner
+my_new_var
+1 -> my_var
+my_var
+5 ->> my_new_var # This is a global assigner
+my_new_var
+
+# %in%; finds out if an element belongs to a vector
+y <- c(1, 2, 3, 4)
+x <- 0
+z <- 1
+
+x %in% y
+z %in% y
+
+# : is used to create a series in a sequence
+collection <- c(1:10)
+print(collection)
+
+x %in% collection
+z %in% collection
+y %in% collection
+
+
+
+# %*% defines Matrix Multiplication
+```
+
+```{r}
+# Function within a function
+Outer_func <- function(x) {
+    Inner_func <- function(y) {
+        a <- x + y
+        return(a)
+    }
+    return(Inner_func)
+}
+output <- Outer_func(3)
+# output will save the value of the Outer_function for reuse
+print(output)
+output(5)
+output(10)
+```
+
+```{r}
+# Recursion
+tri_recursion <- function(k) {
+    if (k > 0) {
+        print(paste("The value of k is: ", k))
+        try(
+            if (exists(result)) {
+                print(paste("result exists:", result))
+            }
+        )
+        result <- k + tri_recursion(k - 1) # k is stored each time;
+        # then the tri_recursion method is called until k == 0
+        # then the tri_recursion loops up using the stored values of k to complete the function from previous iterations
+        print(paste("The value of result is:", result))
+        print(paste("The value of k is: ", k))
+        print(result)
+    } else {
+        print(paste("result is 0; k is: ", k))
+        result <- 0
+        return(result)
+    }
+}
+tri_recursion(5)
+```
+
+```{r}
+# Example of global assignment within a function
+txt <- "awesome"
+my_function <- function() {
+    txt <<- "fantastic"
+    paste("R is", txt)
+}
+
+my_function()
+
+paste("R is", txt) # function will print "R is fantastic" because global assignment was used!
+```
+
+```{r}
+# Vectors
+fruits <- c("banana", "apple", "orange", "mango", "lemon")
+numbers <- c(13, 3, 5, 7, 20, 2)
+
+sort(fruits)
+sort(numbers)
+
+fruits[1]
+fruits
+fruits[c(1, 3)]
+fruits[c(1:3)]
+
+# Negative indices select all but the ones specified
+fruits
+fruits[c(-1)]
+fruits[c(-2)]
+
+fruits
+fruits[c(-1:-3)]
+
+fruits
+fruits[c(-1, -4, -3)]
+
+# repeat vectors
+repeat_independent <- rep(c(1, 2, 3), times = c(5, 2, 1))
+repeat_independent # this will repeat "1" five times, "2" two times, & "3" one time
+
+# generating sequence vectors
+sequence_of_numbers <- seq(from = 0, to = 100, by = 20)
+sequence_of_numbers
+```
+
+```{r}
+# Lists
+thislist <- list(fruits) # this is a list containing a collection
+thislist
+class(thislist)
+
+anotherlist <- list("apple", "banana", "cherry") # this is a list containing three distinct elements
+anotherlist
+class(anotherlist)
+
+
+# check if an item exists in a list
+"apple" %in% anotherlist
+"apple" %in% thislist
+"apple" %in% thislist[[1]]
+```
+
+```{r}
+# matrices
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange", "grape", "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+thismatrix
+
+thismatrix[c(1, 2, 3), ] # select rows 1, 2, & 3
+
+# use cbind to add additional elements to the matrix
+newmatrix <- cbind(thismatrix, c("strawberry", "blueberry", "raspberry"))
+newmatrix
+
+# use rbind to add additional rows to the matrix
+newermatrix <- rbind(newmatrix, c("1", "2", "3", "4"))
+newermatrix
+
+# remove rows & columns
+thismatrix
+thismatrix[c(-1), c(-1)] # you have removed row 1 and col 1
+
+thismatrix[c(-1), ]
+thismatrix
+
+# check if an item exists
+"apple" %in% thismatrix
+"nonsense" %in% thismatrix
+
+# check the dimensions of the matrix
+dim(thismatrix)
+
+dim(newermatrix)
+
+# matrix length
+length(thismatrix)
+length(newermatrix)
+
+# loop through a matrix
+print(paste("thismatrix:",thismatrix))
+cat("\n")
+for (col in 1:ncol(thismatrix)) {
+    for (row in 1:nrow(thismatrix)) {
+        print(paste("Row:", row))
+        print(paste0("col:", col))
+        print(paste("value:",thismatrix[col, row]))
+        cat("\n")
+    }
+}
+
+thismatrix[1,2] # column 1; row 2
+
+# combine two matrices
+Matrix1 <- matrix(c("apple", "banana", "cherry", "grape"), nrow = 2, ncol = 2)
+Matrix2 <- matrix(c("orange", "mango", "pineapple", "watermelon"), nrow = 2, ncol = 2)
+
+Matrix1
+
+Matrix2
+
+# Adding it as rows
+Matrix_Combined <- rbind(Matrix1, Matrix2)
+Matrix_Combined
+
+# Adding the matrices as columns
+Matrix_Combined_cols <- cbind(Matrix1,Matrix2)
+Matrix_Combined_cols
+```
+
+```{r}
+# Plotting
+plot(1,3)
+plot(c(1,8),c(3,10)) # draw two points at 1,3 & 8,10
 ```
 
