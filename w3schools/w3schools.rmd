@@ -1,1 +1,36 @@
-install.packages("languageserver")
+
+```{R}
+print("Hello World")
+```
+```{R}
+# Helpful Keybord Shortcuts:
+print(" <- :alt+- ")
+print(" %>% : ctrl + shift + m")
+print(" code chunk == ctrl + shift + i ")
+```
+
+```{r}
+# Datatypes
+w  <- 9 # Numeric
+x  <- 10.5 # Numeric
+y  <- 10L # Integer
+z  <- 1i # Complex
+```
+
+
+```{r}
+# Type Conversion
+# as.integer()
+a  <- as.numeric(y)
+print(a)
+
+# as.integer()
+b  <-  as.integer(w)
+class(b)
+
+# as.complex()
+c  <- as.complex(w)
+c
+class(c)
+```
+
