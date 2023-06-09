@@ -44,3 +44,11 @@
 # filter for an item in a collection by using %in%
 # Example:
 # filter(name %in% c("steven", "thomas", "evan"))
+
+
+
+
+```{r}
+# To use an installed package without loading the package: 
+dplyr::filter(mtcars, wt >5)
+```
